@@ -1,0 +1,32 @@
+# Dependências da disciplina.
+# As versões serão fixadas (==) antes do Encontro 1, após o teste de ambiente.
+# <!-- VERIFICAR: rodar pip install, conferir que tudo funciona no Colab e no
+#      Windows, e então trocar >= por == com as versões exatas testadas. -->
+
+# Cliente de LLM. Usamos a biblioteca da OpenAI mesmo com Gemini, Groq e
+# Ollama, porque os três expõem endpoint compatível — é o que permite trocar
+# de provedor mudando apenas o .env.
+openai>=1.0
+
+# Carrega o .env como variáveis de ambiente.
+python-dotenv>=1.0
+
+# Validação de saída estruturada (Encontro 4).
+pydantic>=2.0
+
+# Repetição com backoff exponencial para o erro 429 (Encontro 3).
+tenacity>=8.0
+
+# ---------------------------------------------------------------------
+# Entram mais adiante no semestre. Deixe comentado até a aula indicada.
+# ---------------------------------------------------------------------
+# Encontro 9 — RAG
+# numpy>=1.26
+# scikit-learn>=1.4
+
+# Encontro 10 — orquestração e MCP
+# langgraph>=0.2
+# mcp>=1.0
+
+# Encontro 13 — avaliação
+# pytest>=8.0

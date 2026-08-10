@@ -1,0 +1,48 @@
+# ==========================================================
+# A linha mais importante deste arquivo.
+# Impede que suas chaves de API sejam publicadas no GitHub.
+# NÃO REMOVA.
+# ==========================================================
+.env
+.env.*
+!.env.example
+*.key
+credenciais*.json
+service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Índices e caches gerados (RAG, a partir do Encontro 9)
+.cache/
+indices/
+*.faiss
+*.sqlite3
+chroma/
+
+# Saídas de execução e traces (Encontro 14)
+saidas/
+traces/
+*.log
+
+# Arquivos gerados pelo sistema operacional e pelo editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Dados brutos: por padrão nada de dado bruto entra no repositório.
+# Só suba dado sintético ou anonimizado, e de forma explícita.
+dados/brutos/
+*.xlsx
+*.csv
+!dados/exemplo/*.csv
