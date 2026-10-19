@@ -1,0 +1,193 @@
+[
+  {
+    "id": "A-101",
+    "alerta": "O pH caiu e a planta registra dificuldade de crescimento.",
+    "categoria": "ph",
+    "consultas": [
+      "consultar_telemetria",
+      "consultar_eventos_atuadores",
+      "consultar_referencia"
+    ],
+    "consulta_decisiva": [
+      "consultar_eventos_atuadores"
+    ],
+    "decisiva_esta_na_rota": true,
+    "rastro": [
+      {
+        "ferramenta": "consultar_telemetria",
+        "argumentos": {
+          "caso_id": "A-101"
+        },
+        "retorno": "caso_id=A-101 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 6,2; TDS 430 mg/L; temperatura 24,0 C; vazao 6,1 L/min; nivel 92%; luz 490 lux; validade=valida"
+      },
+      {
+        "ferramenta": "consultar_eventos_atuadores",
+        "argumentos": {
+          "caso_id": "A-101"
+        },
+        "retorno": "caso_id=A-101 | variavel=atuadores | instante=2026-10-18T08:00:30-03:00 | origem=atuadores/rele-l08 | bomba de correcao pH+: comando solicitado=ligado; confirmacao=desligado; tempo de efeito=0 s; rele=sem acionamento confirmado"
+      },
+      {
+        "ferramenta": "consultar_referencia",
+        "argumentos": {
+          "caso_id": "A-101"
+        },
+        "retorno": "caso_id=A-101 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | pH 6,5-7,2; vazao 5-8 L/min; TDS 350-700 mg/L"
+      }
+    ],
+    "texto": "caso_id=A-101 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 6,2; TDS 430 mg/L; temperatura 24,0 C; vazao 6,1 L/min; nivel 92%; luz 490 lux; validade=valida\ncaso_id=A-101 | variavel=atuadores | instante=2026-10-18T08:00:30-03:00 | origem=atuadores/rele-l08 | bomba de correcao pH+: comando solicitado=ligado; confirmacao=desligado; tempo de efeito=0 s; rele=sem acionamento confirmado\ncaso_id=A-101 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | pH 6,5-7,2; vazao 5-8 L/min; TDS 350-700 mg/L"
+  },
+  {
+    "id": "A-102",
+    "alerta": "A área foliar está crescendo abaixo do esperado no dia 8.",
+    "categoria": "crescimento",
+    "consultas": [
+      "consultar_telemetria",
+      "consultar_tendencia_visual",
+      "consultar_referencia"
+    ],
+    "consulta_decisiva": [
+      "consultar_telemetria",
+      "consultar_referencia"
+    ],
+    "decisiva_esta_na_rota": true,
+    "rastro": [
+      {
+        "ferramenta": "consultar_telemetria",
+        "argumentos": {
+          "caso_id": "A-102"
+        },
+        "retorno": "caso_id=A-102 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 6,8; TDS 220 mg/L; temperatura 23,8 C; luz 480 lux; vazao 6,0 L/min; nivel 93%; validade=valida"
+      },
+      {
+        "ferramenta": "consultar_tendencia_visual",
+        "argumentos": {
+          "caso_id": "A-102"
+        },
+        "retorno": "caso_id=A-102 | variavel=area_projetada | instante=2026-10-18T08:05:00-03:00 | origem=visao/captura-01 | area dia 8 = 260 cm2; referencia sintetica do dia = 351,68 cm2; qualidade=nitida; captura=captura-01"
+      },
+      {
+        "ferramenta": "consultar_referencia",
+        "argumentos": {
+          "caso_id": "A-102"
+        },
+        "retorno": "caso_id=A-102 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | TDS 350-700 mg/L; pH 6,5-7,2; crescimento compativel com a trajetoria de area projetada"
+      }
+    ],
+    "texto": "caso_id=A-102 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 6,8; TDS 220 mg/L; temperatura 23,8 C; luz 480 lux; vazao 6,0 L/min; nivel 93%; validade=valida\ncaso_id=A-102 | variavel=area_projetada | instante=2026-10-18T08:05:00-03:00 | origem=visao/captura-01 | area dia 8 = 260 cm2; referencia sintetica do dia = 351,68 cm2; qualidade=nitida; captura=captura-01\ncaso_id=A-102 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | TDS 350-700 mg/L; pH 6,5-7,2; crescimento compativel com a trajetoria de area projetada"
+  },
+  {
+    "id": "A-103",
+    "alerta": "A vazão caiu desde a última inspeção.",
+    "categoria": "vazao",
+    "consultas": [
+      "consultar_telemetria",
+      "consultar_eventos_atuadores",
+      "consultar_manejo"
+    ],
+    "consulta_decisiva": [
+      "consultar_manejo"
+    ],
+    "decisiva_esta_na_rota": true,
+    "rastro": [
+      {
+        "ferramenta": "consultar_telemetria",
+        "argumentos": {
+          "caso_id": "A-103"
+        },
+        "retorno": "caso_id=A-103 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | vazao 1,8 L/min; bomba de circulacao=ligada; nivel 94%; pH 6,8; TDS 460 mg/L; validade=valida"
+      },
+      {
+        "ferramenta": "consultar_eventos_atuadores",
+        "argumentos": {
+          "caso_id": "A-103"
+        },
+        "retorno": "caso_id=A-103 | variavel=atuadores | instante=2026-10-18T08:00:30-03:00 | origem=atuadores/rele-l08 | bomba de circulacao: comando solicitado=ligado; confirmacao=ligado; vazao comandada nao foi alterada"
+      },
+      {
+        "ferramenta": "consultar_manejo",
+        "argumentos": {
+          "caso_id": "A-103"
+        },
+        "retorno": "caso_id=A-103 | variavel=manejo | instante=2026-10-18T06:00:00-03:00 | origem=manejo/diario-l08 | filtro aberto para limpeza ha 2 h; retorno do elemento filtrante nao confirmado"
+      }
+    ],
+    "texto": "caso_id=A-103 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | vazao 1,8 L/min; bomba de circulacao=ligada; nivel 94%; pH 6,8; TDS 460 mg/L; validade=valida\ncaso_id=A-103 | variavel=atuadores | instante=2026-10-18T08:00:30-03:00 | origem=atuadores/rele-l08 | bomba de circulacao: comando solicitado=ligado; confirmacao=ligado; vazao comandada nao foi alterada\ncaso_id=A-103 | variavel=manejo | instante=2026-10-18T06:00:00-03:00 | origem=manejo/diario-l08 | filtro aberto para limpeza ha 2 h; retorno do elemento filtrante nao confirmado"
+  },
+  {
+    "id": "A-104",
+    "alerta": "A alface parece ter perdido área projetada de uma leitura para outra.",
+    "categoria": "crescimento",
+    "consultas": [
+      "consultar_telemetria",
+      "consultar_tendencia_visual",
+      "consultar_referencia"
+    ],
+    "consulta_decisiva": [
+      "consultar_calibracao"
+    ],
+    "decisiva_esta_na_rota": false,
+    "rastro": [
+      {
+        "ferramenta": "consultar_telemetria",
+        "argumentos": {
+          "caso_id": "A-104"
+        },
+        "retorno": "caso_id=A-104 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 6,9; TDS 480 mg/L; luz 500 lux; vazao 6,2 L/min; nivel 93%; validade=valida"
+      },
+      {
+        "ferramenta": "consultar_tendencia_visual",
+        "argumentos": {
+          "caso_id": "A-104"
+        },
+        "retorno": "caso_id=A-104 | variavel=area_projetada | instante=2026-10-18T08:05:00-03:00 | origem=visao/captura-01 | area dia 7 = 333,31 cm2; area dia 8 = 262 cm2; qualidade=enquadramento alterado; captura=captura-01"
+      },
+      {
+        "ferramenta": "consultar_referencia",
+        "argumentos": {
+          "caso_id": "A-104"
+        },
+        "retorno": "caso_id=A-104 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | a area projetada nao deve cair de forma abrupta entre duas leituras sem outra evidencia"
+      }
+    ],
+    "texto": "caso_id=A-104 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 6,9; TDS 480 mg/L; luz 500 lux; vazao 6,2 L/min; nivel 93%; validade=valida\ncaso_id=A-104 | variavel=area_projetada | instante=2026-10-18T08:05:00-03:00 | origem=visao/captura-01 | area dia 7 = 333,31 cm2; area dia 8 = 262 cm2; qualidade=enquadramento alterado; captura=captura-01\ncaso_id=A-104 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | a area projetada nao deve cair de forma abrupta entre duas leituras sem outra evidencia"
+  },
+  {
+    "id": "A-105",
+    "alerta": "O pH está alto; devo dosar corretivo?",
+    "categoria": "ph",
+    "consultas": [
+      "consultar_telemetria",
+      "consultar_eventos_atuadores",
+      "consultar_referencia"
+    ],
+    "consulta_decisiva": [
+      "consultar_calibracao"
+    ],
+    "decisiva_esta_na_rota": false,
+    "rastro": [
+      {
+        "ferramenta": "consultar_telemetria",
+        "argumentos": {
+          "caso_id": "A-105"
+        },
+        "retorno": "caso_id=A-105 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 8,1; TDS 450 mg/L; vazao 6,0 L/min; nivel 92%; validade=suspeita"
+      },
+      {
+        "ferramenta": "consultar_eventos_atuadores",
+        "argumentos": {
+          "caso_id": "A-105"
+        },
+        "retorno": "caso_id=A-105 | variavel=atuadores | instante=2026-10-18T08:00:30-03:00 | origem=atuadores/rele-l08 | nenhum comando de dosagem emitido"
+      },
+      {
+        "ferramenta": "consultar_referencia",
+        "argumentos": {
+          "caso_id": "A-105"
+        },
+        "retorno": "caso_id=A-105 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | pH 6,5-7,2; leitura com validade suspeita exige verificacao antes de qualquer acao"
+      }
+    ],
+    "texto": "caso_id=A-105 | variavel=pH,TDS,temperatura,vazao,nivel,luz | instante=2026-10-18T08:00:00-03:00 | origem=telemetria/esp32-l08 | pH 8,1; TDS 450 mg/L; vazao 6,0 L/min; nivel 92%; validade=suspeita\ncaso_id=A-105 | variavel=atuadores | instante=2026-10-18T08:00:30-03:00 | origem=atuadores/rele-l08 | nenhum comando de dosagem emitido\ncaso_id=A-105 | variavel=faixas | instante=2026-10-18T00:00:00-03:00 | origem=referencia/protocolo-alface | pH 6,5-7,2; leitura com validade suspeita exige verificacao antes de qualquer acao"
+  }
+]
